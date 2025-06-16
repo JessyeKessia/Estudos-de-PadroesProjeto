@@ -1,3 +1,5 @@
+package AbstractFactory.Exercicio1;
+
 class MACFactory implements InterfaceFactory {
     // tipagem é importante
     public Botao createBotao() {

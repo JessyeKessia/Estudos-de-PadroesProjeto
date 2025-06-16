@@ -1,3 +1,4 @@
+package AbstractFactory.Exercicio1;
 import java.util.Scanner;
 
 public class Main {
@@ -15,6 +16,6 @@ public class Main {
         }
 
         Application app = new Application(factory);
-        app.rederização();
+        app.rederizacao();
     }
 }
