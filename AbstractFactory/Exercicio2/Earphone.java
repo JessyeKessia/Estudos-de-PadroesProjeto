@@ -1,5 +1,5 @@
 package AbstractFactory.Exercicio2;
 
-interface Earphones {
+interface Earphone {
     void autonomia();
 }

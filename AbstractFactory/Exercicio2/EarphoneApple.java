@@ -1,5 +1,7 @@
 package AbstractFactory.Exercicio2;
 
-public class EarphoneApple {
-    
+class EarphoneApple implements Earphone {
+    public void autonomia () {
+        System.out.println("A bateria está em: 10% ");
+    }
 }
