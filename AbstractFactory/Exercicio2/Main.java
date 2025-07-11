@@ -23,7 +23,9 @@ public class Main {
         // roda a autonomia de tempo do airpoids
         airpods.autonomia();
 
+         // Injeta a empresa que vai ter os produtos, o estilo será definido aqui
         EmpresaFactory samsungFactory = new SamsungFactory();
+
         SmartPhone samsungPhone = samsungFactory.createSmartPhone();
         Tablet samsungTablet = samsungFactory.createTablet();
         Earphone galaxyBuds = samsungFactory.createEarphone();
