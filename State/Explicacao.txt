@@ -1,0 +1,10 @@
+🔁 Chain: múltiplos objetos tentam lidar com a mesma requisição, um por um em sequência
+🔄 State: um único objeto (estado atual) define como a requisição será tratada
+
+| Característica                                        | State (✅ Ideal aqui)                                 | **Chain of Responsibility** (❌ Inadequado aqui)   |
+| ----------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------------- |
+| Ação depende de um **único estado atual**             | ✅ Sim, cada estado sabe o que fazer                  | ❌ Não, passa por vários até um tratar             |
+| Existe uma **transição de estado** clara              | ✅ Sim, o estado atual pode mudar (`Ready → Playing`) | ❌ Não, a cadeia não muda o "estado"               |
+| O foco é **comportamento baseado em estado**          | ✅ Sim                                                | ❌ Não é o foco                                    |
+| Vários "handlers" testam e passam adiante             | ❌ Não, apenas o estado atual age                     | ✅ Sim, essa é a ideia principal do Chain          |
+| Serve para **controle de fluxo por regras múltiplas** | ❌ Não                                                | ✅ Sim (ex: validações, filtros, autorização etc.) |

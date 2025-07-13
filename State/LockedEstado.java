@@ -5,19 +5,22 @@ public class LockedEstado extends Estado {
         super(player);
     }
     public String onLock() {
-        System.out.println("Música bloqueando...");
-        player.changeEstado(new LockedEstado(player));
-        return "Bloqueado!";
+        if (player.isPlaying()) {
+            player.setPlaying(false);
+            player.changeEstado(new ReadyEstado(player));
+            return "Reprodução parada. Modo pronto.";
+        }
+        return "Já está travado. Ação ignorada.";
     }
     public String onPlay() {
-        String action = player.startPlayback();
+        System.out.println("Desbloqueando...");
         player.changeEstado(new PlayingEstado(player));
-        return action;
+        return "Modo desbloqueado!";
     }
     public String onNext() {
-        return player.nextTrack();
+        return "Travado";
     }
     public String onPrevius() {
-        return player.previousTrack();
+        return "Travado";
     }
 }

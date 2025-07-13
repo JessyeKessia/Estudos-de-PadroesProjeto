@@ -10,12 +10,15 @@ public class Player {
     protected int currentTrack = 0;
 
     public Player() {
-        this.estado = new ReadyEstado(null);
+       for (int i = 1; i <= 12; i++) {
+            playlist.add("Música " + i);
+        }
+        this.estado = new ReadyEstado(this);
     }
     public void changeEstado(Estado estado){
         this.estado = estado;
     }
-    public Estado gEstado(){
+    public Estado getEstado(){
         return estado;
     }
     public void setPlaying(boolean play){ 
@@ -29,17 +32,22 @@ public class Player {
         return Playing;
     }
     public String startPlayback() {
-        return "Play ligado!";
+        return "trilha" + currentTrack;
     }
     public String nextTrack() {
-        currentTrack = currentTrack + 1;
-        return "Agora está tocando a trilha" + currentTrack;
+        currentTrack = (currentTrack + 1) % playlist.size();
+        return startPlayback();
     }
     public String previousTrack() {
-        currentTrack = currentTrack - 1;
-        return "Agora está tocando a trilha " + currentTrack;
+        currentTrack = (currentTrack - 1 + playlist.size()) % playlist.size();
+        return startPlayback();
     }
     public void setCurrentTrackAfterStop() {
         this.currentTrack = 0;
     }
+     // Delegando para o estado atual:
+    public String onPlay() { return estado.onPlay(); }
+    public String onStop() { return estado.onLock(); }
+    public String onNext() { return estado.onNext(); }
+    public String onPrevious() { return estado.onPrevius(); }
 }

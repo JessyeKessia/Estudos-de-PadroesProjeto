@@ -5,14 +5,15 @@ public class PlayingEstado extends Estado{
         super(player);
     }
     public String onLock() {
-        System.out.println("Música parando...");
+        player.setPlaying(false);
+        player.setCurrentTrackAfterStop();
         player.changeEstado(new LockedEstado(player));
-        return "Bloqueado!";
+        return "Parado e travado.";
     }
     public String onPlay() {
-        String action = player.startPlayback();
-        player.changeEstado(new PlayingEstado(player));
-        return action;
+        player.setPlaying(false);
+        player.changeEstado(new ReadyEstado(player));
+        return "Pausado.";
     }
     public String onNext() {
         return player.nextTrack();

@@ -6,19 +6,19 @@ public class ReadyEstado extends Estado {
         super(player);
     }
     public String onLock() {
-        System.out.println("Música bloqueando...");
+        System.out.println("Bloqueando...");
         player.changeEstado(new LockedEstado(player));
         return "Bloqueado!";
     }
     public String onPlay() {
-        String action = player.startPlayback();
+        player.setPlaying(true);
         player.changeEstado(new PlayingEstado(player));
-        return action;
+        return "Reproduzindo: " + player.startPlayback();
     }
     public String onNext() {
-        return player.nextTrack();
+        return "Travado";
     }
     public String onPrevius() {
-        return player.previousTrack();
+        return "Travado";
     }
 }
