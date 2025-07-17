@@ -11,7 +11,7 @@ public class Server {
         this.middleware = middleware;
     };
     public boolean login(String email, String password) {
-        if (hasEmail(email) == true && isValidPassaport(email, password) == true) {
+        if (hasEmail(email) == true && isValidPassWord(email, password) == true) {
               System.out.println("Login bem-sucedido!");
               return true;
         } else {
@@ -30,14 +30,15 @@ public class Server {
             return true;
         }
     }
-    public boolean isValidPassaport (String email, String password) {
+    public boolean isValidPassWord (String email, String password) {
         String storedPassword = users.get(email);
 
-        if (!storedPassword.equals(password)) {
+        if (storedPassword != null && storedPassword.equals(password))  {
+            System.out.println("Senha correta!");
+            return true;
+        } else {
             System.out.println("Senha incorreta!");
             return false;
-        } else {
-            return true;
         }
     }
 
