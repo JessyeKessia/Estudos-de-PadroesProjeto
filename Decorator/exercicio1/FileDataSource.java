@@ -17,7 +17,8 @@ public class FileDataSource implements DataSource {
     }
     // função para escrita de alguma coisa no arquivo, como é só escrita, vai ser void, não retorna nada!!!!
     public void writeData(String data) {
-        try (Writer writer = new FileWriter(filename)) { //abre o arquivo com o nome repassado, por exemplo dados.txt ou bla/bla/arquivo.txt
+        try (Writer writer = new FileWriter(filename)) { //abre o arquivo com o nome repassado,  por exemplo dados.txt ou bla/bla/arquivo.txt
+            // Se o arquivo não existir, o FileWriter cria um arquivo novo com esse nome.
             writer.write(data); // Escreve o conteúdo recebido no arquivo.
         } catch (IOException e) { // caso dê um erro cai aqui e sobe o erro
             e.printStackTrace();
