@@ -1,0 +1,2 @@
+Viola o SRP (Princípio da Responsabilidade Única), isso porque o método processarPedido está fazendo muita coisa ao mesmo tempo.
+Outro ponto é o alto acoplamento com classes concretas, já que a fachada instancia diretamente EstoqueRepositorio, PedidoRepositorio e EmailServico.
